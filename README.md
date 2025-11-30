@@ -20,12 +20,13 @@ Dataset contains 15,855 rows and 19 columns.
 3.  **Correlations:**
     * Older customers (`Age`) and those with longer residence (`Year Of Residence`) are more likely to be subscribers.
     * Positive `reward program` usage correlates with lower resignation risk.
-4.  **Data Splitting:** Applied stratified split (`stratify=y`) during the train-test split to ensure the minority class distribution (19%) remains consistent in both training and evaluation sets.
+4.  **Data Splitting:** Applied stratified split (`stratify=y`) during the train-test split to ensure the minority class distribution (19%) remains consistent in       both training and evaluation sets.
 5.  **Encoding:** Used `WOEEncoder` for features with many unique values (`City`, `Ethnicity`) to capture target information better than standard encoding.
 6.  **Classifier:** `SVC` (Support Vector Classifier) with `class_weight='balanced'` to handle the 19% minority class.
-7.  **Hyperparameter Tuning:** Optimized using **RandomizedSearchCV** (5-fold cross-validation) maximizing the **F1-score**.
+7.  **Hyperparameter Tuning:** Optimized using **RandomizedSearchCV** (5-fold cross-validation) maximizing the **F1-score**. The search determined the optimal          number of features (**k=60**).
     * **Best Parameters:** Kernel: `rbf`, C: `1`, Gamma: `scale`, Features: `all`.
-
+    * SelectKBest k: `60`.
+  
 ## Final Results & Metrics
 
 The model was evaluated on a held-out test set (20% split). Given the class imbalance, **F1-Score** and **ROC AUC** are the primary metrics for evaluation.
