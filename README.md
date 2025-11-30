@@ -28,7 +28,7 @@ Dataset contains 15,855 rows and 19 columns.
 
 ## Final Results & Metrics
 
-The model was evaluated on a held-out test set (20% split). Given the class imbalance, **F1-Score** and **ROC AUC** are the primary metrics for evaluation, rather than raw accuracy.
+The model was evaluated on a held-out test set (20% split). Given the class imbalance, **F1-Score** and **ROC AUC** are the primary metrics for evaluation.
 
 | Metric | Score | Interpretation |
 | :--- | :--- | :--- |
