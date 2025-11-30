@@ -37,7 +37,7 @@ The model was evaluated on a held-out test set (20% split). Given the class imba
 | **Recall (Class 1)** | 0.6919 | The model successfully identifies 69% of the target cases. |
 | Accuracy | 0.7673 | Lower than the majority baseline due to the trade-off made to capture the minority class. |
 
-The model prioritizes finding the minority class (High Recall relative to Precision), which is often the desired strategy in churn prediction to avoid missing customers.
+The model prioritizes finding the minority class, which is often the desired strategy in churn prediction to avoid missing customers.
 
 ### Confusion Matrix
 ![Confusion Matrix](confusion_matrix.png)
