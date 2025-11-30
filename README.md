@@ -32,17 +32,17 @@ The model was evaluated on a held-out test set (20% split). Given the class imba
 
 | Metric | Score | Interpretation |
 | :--- | :--- | :--- |
-| **ROC AUC** | 0.8158 | Indicates the model has a strong ability to distinguish between subscribers and non-subscribers. |
-| **F1-Score (Class 1)**| 0.5323 | A balanced measure of precision and recall for the minority class. |
-| **Recall (Class 1)** | 0.6919 | The model successfully identifies 69% of the target cases. |
-| Accuracy | 0.7673 | Lower than the majority baseline due to the trade-off made to capture the minority class. |
+| **ROC AUC** | 0.8131 | Indicates the model has a strong ability to distinguish between subscribers and non-subscribers. |
+| **F1-Score (Class 1)**| 0.5326 | A balanced measure of precision and recall for the minority class. |
+| **Recall (Class 1)** | 0.7002 | The model successfully identifies 69% of actual subscribers. |
+| Accuracy | 0.7647 | Lower than the majority baseline because the model mainly tries to find the minority class. |
 
 The model prioritizes finding the minority class, which is often the desired strategy in churn prediction to avoid missing customers.
 
 ### Confusion Matrix
 ![Confusion Matrix](confusion_matrix.png)
 
-* **True Positives (420):** Correctly identified subscribers.
-* **False Negatives (187):** Subscribers missed by the model.
+* **True Positives (425):** Correctly identified subscribers.
+* **False Negatives (182):** Subscribers missed by the model.
 
 **Summary:** The model prioritizes finding the minority class, which is the desired strategy to minimize churn.
