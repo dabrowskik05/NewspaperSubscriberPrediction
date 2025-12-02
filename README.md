@@ -35,7 +35,7 @@ The model was evaluated on a held-out test set (20% split). Given the class imba
 | :--- | :--- | :--- |
 | **ROC AUC** | 0.8131 | Indicates the model has a strong ability to distinguish between subscribers and non-subscribers. |
 | **F1-Score (Class 1)**| 0.5326 | A balanced measure of precision and recall for the minority class. |
-| **Recall (Class 1)** | 0.7002 | The model successfully identifies 69% of actual subscribers. |
+| **Recall (Class 1)** | 0.7002 | The model successfully identifies 70% of actual subscribers. |
 | Accuracy | 0.7647 | Lower than the majority baseline because the model mainly tries to find the minority class. |
 
 The model prioritizes finding the minority class, which is often the desired strategy in churn prediction to avoid missing customers.
