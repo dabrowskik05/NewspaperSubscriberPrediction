@@ -5,6 +5,9 @@ This project focuses on building a machine learning pipeline to predict the subs
 
 The workflow includes data cleaning, handling missing values, feature engineering, encoding, model training, hyperparameter tuning, and evaluation.
 
+## Context
+This project was my entry task for the PIDML machine learning group in CERN's ALICE experiment. The dataset (NewspaperChurn) and the model family (SVM) were assigned as part of the task.
+
 ## Assignment Details
 * **Dataset:** Dataset ID 4 - NewspaperChurn.
 * **Model:** Model ID 3 - Support Vector Machine (SVM).
@@ -24,8 +27,7 @@ Dataset contains 15,855 rows and 19 columns.
 5.  **Encoding:** Used `WOEEncoder` for features with many unique values (`City`, `Ethnicity`) to capture target information better than standard encoding.
 6.  **Classifier:** `SVC` (Support Vector Classifier) with `class_weight='balanced'` to handle the 19% minority class.
 7.  **Hyperparameter Tuning:** Optimized using **RandomizedSearchCV** (5-fold cross-validation) maximizing the **F1-score**. The search determined the optimal          number of features (**k=60**).
-    * **Best Parameters:** Kernel: `rbf`, C: `1`, Gamma: `scale`, Features: `all`.
-    * SelectKBest k: `60`.
+    * **Best Parameters:** Kernel: `rbf`, C: `1`, Gamma: `scale`, SelectKBest k: `60`.
   
 ## Final Results & Metrics
 
@@ -33,12 +35,12 @@ The model was evaluated on a held-out test set (20% split). Given the class imba
 
 | Metric | Score | Interpretation |
 | :--- | :--- | :--- |
-| **ROC AUC** | 0.8131 | Indicates the model has a strong ability to distinguish between subscribers and non-subscribers. |
+| **ROC AUC** | 0.8131 | Indicates the model has a good ability to distinguish between subscribers and non-subscribers. |
 | **F1-Score (Class 1)**| 0.5326 | A balanced measure of precision and recall for the minority class. |
 | **Recall (Class 1)** | 0.7002 | The model successfully identifies 70% of actual subscribers. |
 | Accuracy | 0.7647 | Lower than the majority baseline because the model mainly tries to find the minority class. |
 
-The model prioritizes finding the minority class, which is often the desired strategy in churn prediction to avoid missing customers.
+The model prioritizes finding the minority class (active subscribers), which helps avoid missing customers who are still subscribed.
 
 ### Confusion Matrix
 ![Confusion Matrix](confusion_matrix.png)
@@ -46,4 +48,13 @@ The model prioritizes finding the minority class, which is often the desired str
 * **True Positives (425):** Correctly identified subscribers.
 * **False Negatives (182):** Subscribers missed by the model.
 
-**Summary:** The model prioritizes finding the minority class, which is the desired strategy to minimize churn.
+## How to run
+
+Required libraries: `numpy`, `pandas`, `liac-arff`, `matplotlib`, `seaborn`, `scikit-learn`, `category-encoders`.
+
+```bash
+pip install -r requirements.txt
+jupyter notebook NewspaperChurn.ipynb
+```
+
+The notebook expects the ARFF data file `dataset_` in the same directory.

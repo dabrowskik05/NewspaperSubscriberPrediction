@@ -1,0 +1,7 @@
+numpy
+pandas
+liac-arff
+matplotlib
+seaborn
+scikit-learn
+category-encoders
